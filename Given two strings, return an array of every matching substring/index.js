@@ -26,7 +26,6 @@ function matchingSubStrings(str1, str2) {
                  }
              }  
     }
-     // return new  Set(newArray)
     console.log( new Set(newArray))
     
 }
