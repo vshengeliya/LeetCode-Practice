@@ -12,26 +12,30 @@
 
 //need reafctor
 
+
 var twoSum = function(nums, target) {
     
-    let array = []
-    let indexArray = []
-    
-    for (let i=0; i<nums.length; i++){
+    // create a new Map
+        // check if the difference between number in array and target is in map -
+        // take its index/value (key - value pair) - push to the new array, if not - arrign a pair in the map
+        //return the new array
         
-        for (let j = 0; j<nums.length; j++){
+       let indexCheck = new Map();
+            let newArray = [];
             
-            if (nums[i]+nums[j] === target){
-                array.push(nums[i])
-            }   
-            
-            for (let k=0; k < array.length; k++){
-               indexArray.push(k)
+            for (let i=0; i < nums.length; i++){
+                let currentNumber = nums[i]
+                let  difference = target - currentNumber
+    
+                
+                if (indexCheck.has(difference)){
+                    newArray.push(indexCheck.get(difference))
+                    newArray.push(i)
+                } else {
+                    indexCheck.set(currentNumber, i)
+                }
             }
-        }  
-                      
-    }  
-    return Array.from(new Set (indexArray))
-};
+            return newArray;
+    };
 
-console.log(twoSum([2,7,11,15], 9))
+console.log(twoSum([3,2,4], 6))
