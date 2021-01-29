@@ -38,4 +38,7 @@ var twoSum = function(nums, target) {
             return newArray;
     };
 
+    //2nd solution:
+    
+
 console.log(twoSum([3,2,4], 6))
